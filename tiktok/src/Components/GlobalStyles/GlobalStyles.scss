@@ -1,0 +1,16 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;300;400;500;600&display=swap');
+:root {
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    //tối ưu font chữ nhanh nhất
+    text-rendering: optimizeSpeed;
+}
