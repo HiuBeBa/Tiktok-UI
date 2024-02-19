@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Về Props</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <!-- Thư viện babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class App extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    data: null
+                };
+            }
+
+            componentDidMount() {
+                fetch('https://api-gateway.fullstack.edu.vn/api/pro-courses')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.setState({
+                            data: JSON.parse(JSON.stringify(data))
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            }
+
+            render() {
+                return (
+                    <div id="wrapper">
+                        {this.state.data && this.state.data.map(data => (
+                            <Content
+                                title={data.title}
+                                description={data.description}
+                            />
+                        ))}
+                    </div>
+                );
+            }
+        }
+
+        function Content(props) {
+            return (
+                <div className="content">
+                    <h2>{props.title}</h2>
+                    <p>{props.description}</p>
+                </div>
+            );
+        }
+
+        // Babel transformation is automatically applied to the script with type="text/babel"
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

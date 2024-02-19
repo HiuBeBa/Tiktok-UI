@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactjs Bài 2</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+    <!-- //Thư viên bable  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <scrip type = "text/babel">
+        <!-- //React
+        const postItem = React.createElement(
+            'div',
+            {
+                className: 'post-item',
+            },
+            React.createElement(
+                'h2',
+                {
+                    title: 'Học React ở Híu Bé Ba',
+                },
+                'Học ReactJs'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'Học ReactJs Từ Cơ Bản Đến Nâng Cao'
+            )
+        )
+
+        //Get root element
+        // const root = document.getElementById('root');
+
+        //React-DOM ->Render UI
+        //version-17
+        // ReactDOM.render(postItem, root)
+
+        //version-18 -->
+        <!-- const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+        root.render(postItem); -->
+        const ul = <ul>
+            <li>JavaScript</li>
+            <li>Reactjs</li>
+        </ul>
+        ReactDOM.render(ul, document.getElementById('root'));
+
+    </scrip>
+</body>
+</html>
